@@ -1,5 +1,6 @@
 class Router {
-    constructor() {
+    constructor(el) {
+        this.el = el;
         this.routeObj = {};
     }
 
@@ -13,7 +14,7 @@ class Router {
                         method: 'GET'
                     }).then(resp => resp.text()).
                     then(obj => {
-                        document.body.innerHTML = obj;
+                        document.querySelector(this.el).innerHTML = obj;
                     })
                 }
             });
@@ -30,7 +31,7 @@ class Router {
                         method: 'GET'
                     }).then(resp => resp.text()).
                     then(obj => {
-                        document.body.innerHTML = obj;
+                        document.querySelector(this.el).innerHTML = obj;
                     })
                 }
             });
@@ -41,7 +42,7 @@ class Router {
                         method: 'GET'
                     }).then(resp => resp.text()).
                     then(obj => {
-                        document.body.innerHTML = obj;
+                        document.querySelector(this.el).innerHTML = obj;
                         window.location.hash = route;
                     })
                 }
