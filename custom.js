@@ -1,5 +1,6 @@
-const $router = new Router("#your-entry-point");
+const $router = new Router("#bootstrap");
 
+$router.errorTpl = '404.html';
 $router.rules(
     [
         {   'url': '#!',
