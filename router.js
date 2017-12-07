@@ -1,5 +1,5 @@
 class Router {
-    constructor(el) {
+    constructor(el = 'body') {
         this.el = el;
         this.routeObj = {};
     }
