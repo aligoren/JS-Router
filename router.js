@@ -37,6 +37,9 @@ class Router {
             });
         } else {
             this.routeObj.forEach(el => {
+                if(!route) {
+                    route = this.routeObj[0].url;
+                }
                 if(el['url'] == route) {
                     fetch(el['template'], {
                         method: 'GET'
