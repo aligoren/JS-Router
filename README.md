@@ -46,7 +46,7 @@ start('#!')
 If you need to show custom 404 page you can use this property
 
 ```javascript
-$router.errprTğş = '404.html';
+$router.errorTpl = '404.html';
 ```
 
 ### Full Example
