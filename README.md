@@ -41,13 +41,20 @@ When the page is first opened, users will see this page. This page will be index
 start('#!')
 ```
 
+### errorTpl - property
+
+If you need to show custom 404 page you can use this property
+
+```javascript
+$router.errprTğş = '404.html';
+```
+
 ### Full Example
 
 ```javascript
-const $router = new Router();
+const $router = new Router("#bootstrap");
 
-
-
+$router.errorTpl = '404.html';
 $router.rules(
     [
         {   'url': '#!',
