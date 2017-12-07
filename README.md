@@ -5,6 +5,14 @@ Simple JavaScript Router with VanillaJS' ES6. There is no dependency. Simple and
 
 There are two methods to use router.
 
+## init
+
+```javascript
+const $router = new Router("#bootstrap");
+
+constructor taking one argument. If you declare spesific element, router work with it. If you don't default element will be body
+```
+
 ### rules(ObjectArray)
 
 You must define object array. Every url must start with hash sign for now.
