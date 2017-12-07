@@ -1,6 +1,4 @@
-const $router = new Router();
-
-
+const $router = new Router("#your-entry-point");
 
 $router.rules(
     [
