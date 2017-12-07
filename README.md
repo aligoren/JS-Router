@@ -7,7 +7,7 @@ There are two methods to use router.
 
 ## init
 
-constructor taking one argument. If you declare spesific element, router work with it. If you don't default element will be body
+constructor taking one argument. If you declare specific element, router work with it. If you don't default element will be body
 
 ```javascript
 const $router = new Router("#bootstrap");
