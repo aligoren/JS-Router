@@ -17,11 +17,20 @@ const $router = new Router("#bootstrap");
 
 You must define object array. Every url must start with hash sign for now.
 
+If you use fn key in any rule, function will be work after page load.
+
+You can only change document title for now.
+
+`$router.data.window.title` helper to change document title.
+
 ```javascript
 rules(
     [
         {   'url': '#!',
-            'template': 'hash.html'
+            'template': 'hash.html',
+            'fn': function() {
+                $router.data.window.title = 'Changed Document Title'
+            }
         },
         {   'url': '#/hash1',
             'template': 'hash1.html'
@@ -58,13 +67,27 @@ $router.errorTpl = '404.html';
 $router.rules(
     [
         {   'url': '#!',
-            'template': 'hash.html'
+            'template': 'hash.html',
+            'fn': function() {
+                $router.data.window.title = 'Start Page';
+            }
         },
         {   'url': '#/hash1',
-            'template': 'hash1.html'
+            'template': 'hash1.html',
+            'fn': function() {
+                $router.data.window.title = 'Hash1 Page';
+            }
         },
         {   'url': '#/hash2',
             'template': 'hash2.html'
+        },
+        {   
+            'url': '#/hash3',
+            'template': 'hash3.html'
+        },
+        {
+            'url': '#/success',
+            'template': 'success.html'
         }
     ]
 ).start('#!')
