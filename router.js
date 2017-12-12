@@ -4,6 +4,25 @@ class Router {
         this.routeObj = {};
         this.routeArr = [];
         this.errorTpl = '';
+        this.data = {
+            window: {
+                default: document.title,
+                title: '',
+            }
+        };
+    }
+
+    call(fn) {
+        if(fn && typeof fn() === 'function') {
+            fn();
+        }
+
+        if(this.data.window.title) {
+            document.title = this.data.window.title;
+        } else {
+            document.title = this.data.window.default;
+        }
+        this.data.window.title = '';
     }
 
     rules(opt) {
@@ -12,16 +31,18 @@ class Router {
 
         window.addEventListener("hashchange", (k, v) => {
             this.routeArr = [];
+            
             this.routeObj.forEach(el => {
                 if(el['url'] == window.location.hash) {
                     fetch(el['template'], {
                         method: 'GET'
                     }).then(resp => resp.text()).
                     then(obj => {
-                        
                         document.querySelector(this.el).innerHTML = obj;
+                        
+                        this.call(el['fn']);
                     });
-
+                    
                     this.routeArr["ok"] = true;
                 }
             });
@@ -55,6 +76,8 @@ class Router {
                     }).then(resp => resp.text()).
                     then(obj => {
                         document.querySelector(this.el).innerHTML = obj;
+
+                        this.call(el['fn']);
                     });
                     this.routeArr["ok"] = true;
                 }
@@ -88,6 +111,7 @@ class Router {
                     then(obj => {
                         document.querySelector(this.el).innerHTML = obj;
                         window.location.hash = route;
+                        this.call(el['fn']);
                     })
                 }
             });
